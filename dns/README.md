@@ -8,8 +8,8 @@ it conflicts with macOS mDNS.
 
 | Name | Resolves to | Meaning |
 |---|---|---|
-| app.netforge.test | 10.7.23.147 | nginx edge server (Mac 2) |
-| api.netforge.test | 10.7.23.147 | nginx edge server (Mac 2) |
+| app.netforge.test | 10.7.18.238 | nginx edge server (Mac 2) |
+| api.netforge.test | 10.7.18.238 | nginx edge server (Mac 2) |
 
 Clients never get the backend IPs. They only ever learn the edge IP.
 
@@ -25,16 +25,16 @@ Port 53 is a privileged port, so the service needs `sudo`.
 
 ## Point clients at this DNS server
 
-System Settings, Network, Wi-Fi, Details, DNS: add `10.7.25.133` as the DNS server.
+System Settings, Network, Wi-Fi, Details, DNS: add `10.7.15.247` as the DNS server.
 
 ## Verify
 
 ```bash
-dig app.netforge.test @10.7.25.133   # direct query to our server
+dig app.netforge.test @10.7.15.247   # direct query to our server
 dig app.netforge.test                # uses the system resolver
 ```
 
-Expected: ANSWER SECTION shows `10.7.23.147` and SERVER shows `10.7.25.133`.
+Expected: ANSWER SECTION shows `10.7.18.238` and SERVER shows `10.7.15.247`.
 
 ## Ports
 
