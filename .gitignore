@@ -1,0 +1,12 @@
+# secrets: never commit private keys
+*.key
+*.srl
+*.csr
+*.p12
+
+# dependencies
+node_modules/
+
+# macOS / editor
+.DS_Store
+.vscode/
