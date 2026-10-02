@@ -10,3 +10,8 @@ node_modules/
 # macOS / editor
 .DS_Store
 .vscode/
+
+venv/
+__pycache__/
+*.pyc
+.kombai/
