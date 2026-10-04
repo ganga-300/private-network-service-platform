@@ -15,3 +15,7 @@ venv/
 __pycache__/
 *.pyc
 .kombai/
+
+*-key.pem
+*.pem
+!rootCA.pem
