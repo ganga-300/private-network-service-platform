@@ -75,8 +75,8 @@ Replace the placeholders with the final verified IPs.
 dig app.netforge.test
 
 # Each backend directly
-curl -i http://<BACKEND_A_IP>:3001/api/status
-curl -i http://<BACKEND_B_IP>:3002/api/status
+curl -i http://10.7.19.184:3001/api/status
+curl -i http://10.7.13.88:3002/api/status 
 
 # HTTPS through the edge (no -k flag)
 curl -i https://app.netforge.test:8443/api/status
