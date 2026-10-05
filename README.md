@@ -15,6 +15,12 @@ A private service environment built on four macOS laptops over a local network, 
 | Pratiti | Backend Server A | Mac 3 |
 | Anuradha | Backend Server B + Test Client | Mac 4 |
 
+# Project Demo Video
+
+[Project Demo Video](https://drive.google.com/file/d/1UlZExhMh6v0b6dZ7keArF0XUAeVMysRz/view?usp=sharing)
+
+
+
 ## Architecture
 
 ```
