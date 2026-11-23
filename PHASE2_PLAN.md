@@ -103,10 +103,10 @@ Rules for every screenshot:
 - Tick the box when the file is in the repo.
 
 ### Round 0/1: LAN check (after the IPs are fixed) → `evidence/00_lan/`
-- [ ] `01_mac1_ip_ping.png` (Mac 1): own IP + ping to the other three
-- [ ] `02_mac2_ip_ping.png` (Mac 2)
-- [ ] `03_mac3_ip_ping.png` (Mac 3)
-- [ ] `04_mac4_ip_ping.png` (Mac 4)
+- [x] `01_mac1_ip_ping.png` (Mac 1): own IP + ping to the other three
+- [x] `02_mac2_ip_ping.png` (Mac 2)
+- [x] `03_mac3_ip_ping.jpeg` (Mac 3)
+- [x] `04_mac4_ip_ping.jpeg` (Mac 4)
 
 ### Round 1: Ext D HA failover → `evidence/11_ha_failover/`
 - [x] `01_nginx_phase2_config.png` (Mac 2): upstream with `max_fails`/`fail_timeout`, `proxy_next_upstream`, `nginx -t` OK
@@ -123,15 +123,15 @@ Rules for every screenshot:
 - [x] `07_wrong_port.png` (client): `ping` works, `curl https://app.netforge.test:9443` → connection refused
 
 ### Round 2: Ext A backup DNS → `evidence/08_backup_dns/`
-- [ ] `01_backup_dnsmasq_mac4.png` (Mac 4): dnsmasq running, `dig @<Mac4> app.netforge.test` answers
-- [ ] `02_client_two_dns_servers.png` (Mac 2 as client): `scutil --dns` lists Mac 1 and Mac 4
+- [x] `01_backup_dnsmasq_mac4.jpeg` (Mac 4): dnsmasq running, `dig @<Mac4> app.netforge.test` answers
+- [x] `02_client_two_dns_servers.png` (Mac 2 as client): `scutil --dns` lists Mac 1 and Mac 4
 - [x] (covered by `05b`) `03_answer_from_primary.png` (Mac 2): `dig` → SERVER = Mac 1
-- [ ] `04_primary_stopped.png` (Mac 1): `sudo brew services stop dnsmasq`
+- [x] `04_primary_stopped.png` (Mac 1): `sudo brew services stop dnsmasq`
 - [x] (covered by `05b_backup_dns_curl_200.png`) `05_answer_from_backup.png` (Mac 2): `dig` → SERVER = Mac 4 + `curl` still 200
 - [x] `06_dns_vs_app_failure.png` (Mac 2): DNS OK but both backends down = 502, compared with DNS down = name not resolved
 - [x] `07_primary_restored.png` (Mac 2): primary back, SERVER = Mac 1, HTTP 200
 - [x] real fault found: `13_troubleshooting/drill_00_real_504_mac{2,3,4}.png` (both backends left stopped → 504; B refused, A timed out)
-- [ ] optional: `dns_failover.pcapng` (Wireshark on Mac 2): query to Mac 1 fails, retry goes to Mac 4
+- [ ] optional, not done: `dns_failover.pcapng` (Wireshark on Mac 2): query to Mac 1 fails, retry goes to Mac 4
 
 ### Round 3: Ext B TTL → `evidence/09_dns_ttl/`
 - [x] (in 03_cached_vs_server_timeline / 05) `01_ttl_30.png` (client): `dig` shows TTL 30 in the ANSWER section
@@ -152,7 +152,7 @@ Run this on both Mac 3 and Mac 4. Name the files `_mac3` / `_mac4`.
 
 ### Round 5: Ext E edge migration → `evidence/12_edge_migration/`
 - [x] `01_standby_nginx_mac3` + `01b_standby_direct_test` (Mac 3): `nginx -t` OK + listening on 8443 + cert fingerprint matches Mac 2
-- [ ] `02_before_cutover_primary.png` (client): `X-Edge: primary-mac2`
+- [x] (covered by the first lines of `04_cached_client_old_edge`) `02_before_cutover_primary.png` (client): `X-Edge: primary-mac2`
 - [x] `03_dns_record_changed` (Mac 1 + Mac 4): record now points to Mac 3
 - [x] `04_cached_client_old_edge` (cached client): still `primary-mac2` for up to 30 s
 - [x] `05_fresh_client_new_edge` (flushed client): `standby-mac3` immediately
@@ -171,8 +171,8 @@ New config bundle files: `dns/dnsmasq-backup.conf`, `nginx/nginx-phase2.conf`, `
 ## Final deliverables checklist (Review 2)
 
 - [x] Architecture doc updated (Phase 2 topology: backup DNS, standby edge, firewall boundary)
-- [ ] Config bundle: Phase 2 dnsmasq ×2, nginx Phase 2 + standby, firewall rules + rollback, TLS notes on sharing the cert
-- [ ] Evidence folders 07–13 filled
+- [x] Config bundle: Phase 2 dnsmasq ×2, nginx Phase 2 + standby, firewall rules + rollback, TLS notes on sharing the cert
+- [x] Evidence folders 00 and 05–13 filled (incl. fresh Phase 2 Wireshark capture)
 - [x] (draft, team to review) Phase 2 final report: what changed from Phase 1 · test results table · troubleshooting findings · one learning paragraph per extension (A–F)
 - [ ] Rehearse the 11-step demo sequence (Section 8) end to end
 - [ ] Every member can explain every extension (viva)
