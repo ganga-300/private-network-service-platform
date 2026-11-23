@@ -151,7 +151,7 @@ Run this on both Mac 3 and Mac 4. Name the files `_mac3` / `_mac4`.
 - [x] `07_rollback_restored_mac3`: backup restored, direct access works again
 
 ### Round 5: Ext E edge migration → `evidence/12_edge_migration/`
-- [ ] `01_standby_nginx_mac3.png` (Mac 3): `nginx -t` OK + listening on 8443 + cert fingerprint matches Mac 2
+- [x] `01_standby_nginx_mac3` + `01b_standby_direct_test` (Mac 3): `nginx -t` OK + listening on 8443 + cert fingerprint matches Mac 2
 - [ ] `02_before_cutover_primary.png` (client): `X-Edge: primary-mac2`
 - [ ] `03_dns_record_changed.png` (Mac 1 + Mac 4): record now points to Mac 3
 - [ ] `04_cached_client_old_edge.png` (cached client): still `primary-mac2` for up to 30 s
