@@ -160,8 +160,8 @@ Run this on both Mac 3 and Mac 4. Name the files `_mac3` / `_mac4`.
 - [x] `07_rollback_to_primary`: record back to Mac 2
 
 ### Round 6: Ext F troubleshooting → `evidence/13_troubleshooting/`
-- [ ] `drill_01_<fault>.png`, `drill_02_<fault>.png`, … `diagnose.sh` output for each practice fault
-- [ ] `notes.md`: fault, symptom, layer, how it was found, fix (one row per drill; this feeds the final report)
+- [x] `drill_01_dns_down`, `drill_02_tcp_nginx_down`, `drill_03_tls_no_ssl`, `drill_04_app_wrong_upstream_{client,edge}`; earlier: `drill_01_<fault>.png`, `drill_02_<fault>.png`, … `diagnose.sh` output for each practice fault
+- [x] `notes.md`: fault, symptom, layer, how it was found, fix (one row per drill; this feeds the final report)
 
 ### Phase 2 configs (no screenshots; files go in the repo)
 `dns/dnsmasq.conf` (updated) · `dns/dnsmasq-backup.conf` · `nginx/nginx-phase2.conf` · `nginx/nginx-standby.conf` · `firewall/netforge.pf` · `firewall/pf.conf.backup` · `firewall/README.md` · `tools/diagnose.sh`
