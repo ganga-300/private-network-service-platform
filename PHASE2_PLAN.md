@@ -153,11 +153,11 @@ Run this on both Mac 3 and Mac 4. Name the files `_mac3` / `_mac4`.
 ### Round 5: Ext E edge migration → `evidence/12_edge_migration/`
 - [x] `01_standby_nginx_mac3` + `01b_standby_direct_test` (Mac 3): `nginx -t` OK + listening on 8443 + cert fingerprint matches Mac 2
 - [ ] `02_before_cutover_primary.png` (client): `X-Edge: primary-mac2`
-- [ ] `03_dns_record_changed.png` (Mac 1 + Mac 4): record now points to Mac 3
-- [ ] `04_cached_client_old_edge.png` (cached client): still `primary-mac2` for up to 30 s
-- [ ] `05_fresh_client_new_edge.png` (flushed client): `standby-mac3` immediately
-- [ ] `06_after_ttl_all_standby.png` (both clients): all `standby-mac3`
-- [ ] `07_rollback_to_primary.png`: record back to Mac 2
+- [x] `03_dns_record_changed` (Mac 1 + Mac 4): record now points to Mac 3
+- [x] `04_cached_client_old_edge` (cached client): still `primary-mac2` for up to 30 s
+- [x] `05_fresh_client_new_edge` (flushed client): `standby-mac3` immediately
+- [x] `06_after_ttl_all_standby` (both clients): all `standby-mac3`
+- [x] `07_rollback_to_primary`: record back to Mac 2
 
 ### Round 6: Ext F troubleshooting → `evidence/13_troubleshooting/`
 - [ ] `drill_01_<fault>.png`, `drill_02_<fault>.png`, … `diagnose.sh` output for each practice fault
