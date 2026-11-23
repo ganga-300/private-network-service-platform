@@ -59,7 +59,7 @@ if echo "$tls" | grep -q "SSL certificate verify ok"; then
 else
   fail "TLS problem"
   echo "$tls" | grep -iE "ssl|certificate|tls|wrong version|alert" | head -5 | sed 's/^/        /'
-  info "'wrong version number' = the port speaks plain HTTP, not TLS"
+  info "'wrong version number' / 'alert protocol version' = the port speaks plain HTTP, not TLS"
   info "'unable to get local issuer' = client does not trust the CA"
   info "'no alternative certificate subject name matches' = wrong certificate for this name"
   echo; echo "STOP: TLS layer."; exit 1
