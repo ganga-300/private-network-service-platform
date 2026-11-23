@@ -142,13 +142,13 @@ Rules for every screenshot:
 
 ### Round 4: Ext C service isolation → `evidence/10_service_isolation/`
 Run this on both Mac 3 and Mac 4. Name the files `_mac3` / `_mac4`.
-- [ ] `01_pf_backup_and_anchor_file_mac3.png`: `ls -l /etc/pf.conf*` + `cat /etc/pf.anchors/netforge`
-- [ ] `02_pf_dry_run_ok_mac3.png`: `sudo pfctl -vnf /etc/pf.conf` with no errors
-- [ ] `03_pf_rules_loaded_mac3.png`: `sudo pfctl -a netforge -sr` + `sudo pfctl -sr` still shows com.apple
-- [ ] `04_edge_can_reach_backends.png` (Mac 2): direct `curl` to :3001 and :3002 → 200
-- [ ] `05_client_blocked.png` (Mac 1 or Mac 4): direct `curl` to :3001/:3002 → timeout
-- [ ] `06_https_still_works.png` (client): `https://app.netforge.test:8443` still serves A/B
-- [ ] `07_rollback_restored_mac3.png`: backup restored, direct access works again
+- [x] `01_pf_backup_and_anchor_file_mac3`: `ls -l /etc/pf.conf*` + `cat /etc/pf.anchors/netforge`
+- [x] `02_pf_dry_run_ok_mac3`: `sudo pfctl -vnf /etc/pf.conf` with no errors
+- [x] `03_pf_rules_loaded_mac3`: `sudo pfctl -a netforge -sr` + `sudo pfctl -sr` still shows com.apple
+- [x] `04_edge_can_reach_backends` (Mac 2): direct `curl` to :3001 and :3002 → 200
+- [x] `05_client_blocked` (Mac 1 or Mac 4): direct `curl` to :3001/:3002 → timeout
+- [x] `06_https_still_works` (client): `https://app.netforge.test:8443` still serves A/B
+- [x] `07_rollback_restored_mac3`: backup restored, direct access works again
 
 ### Round 5: Ext E edge migration → `evidence/12_edge_migration/`
 - [ ] `01_standby_nginx_mac3.png` (Mac 3): `nginx -t` OK + listening on 8443 + cert fingerprint matches Mac 2
