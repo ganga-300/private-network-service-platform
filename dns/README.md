@@ -8,8 +8,8 @@ it conflicts with macOS mDNS.
 
 | Name | Resolves to | Meaning |
 |---|---|---|
-| app.netforge.test | 10.7.18.238 | nginx edge server (Mac 2) |
-| api.netforge.test | 10.7.18.238 | nginx edge server (Mac 2) |
+| app.netforge.test | 10.7.17.248 | nginx edge server (Mac 2) |
+| api.netforge.test | 10.7.17.248 | nginx edge server (Mac 2) |
 
 Clients never get the backend IPs. They only ever learn the edge IP.
 
@@ -34,7 +34,7 @@ dig app.netforge.test @10.7.15.247   # direct query to our server
 dig app.netforge.test                # uses the system resolver
 ```
 
-Expected: ANSWER SECTION shows `10.7.18.238` and SERVER shows `10.7.15.247`.
+Expected: ANSWER SECTION shows `10.7.17.248` and SERVER shows `10.7.15.247`.
 
 ## Ports
 
