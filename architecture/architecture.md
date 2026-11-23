@@ -4,8 +4,15 @@ A private service platform on four macOS laptops on one Wi-Fi LAN (`10.7.0.0/19`
 A client opens `https://app.netforge.test:8443`. Our own DNS resolves the name, nginx terminates TLS at the edge,
 and the request is load balanced across two Python backends. There is no cloud, and the network is the project.
 
-Diagrams: [`network_topology.png`](network_topology.png) and [`request_flow.png`](request_flow.png) show the Phase 1 layout.
-The Phase 2 additions are drawn below.
+### Phase 2 topology (current IPs)
+
+![NetForge Phase 2 network topology](network_topology_phase2.png)
+
+### Phase 2 request flow
+
+![NetForge Phase 2 request flow](request_flow_phase2.png)
+
+Phase 1 diagrams (older IP addresses, kept for reference): [`network_topology.png`](network_topology.png), [`request_flow.png`](request_flow.png).
 
 ## 1. Machines, roles and services
 
