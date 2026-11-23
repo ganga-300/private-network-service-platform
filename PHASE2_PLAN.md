@@ -125,10 +125,12 @@ Rules for every screenshot:
 ### Round 2: Ext A backup DNS → `evidence/08_backup_dns/`
 - [ ] `01_backup_dnsmasq_mac4.png` (Mac 4): dnsmasq running, `dig @<Mac4> app.netforge.test` answers
 - [ ] `02_client_two_dns_servers.png` (Mac 2 as client): `scutil --dns` lists Mac 1 and Mac 4
-- [ ] `03_answer_from_primary.png` (Mac 2): `dig` → SERVER = Mac 1
+- [x] (covered by `05b`) `03_answer_from_primary.png` (Mac 2): `dig` → SERVER = Mac 1
 - [ ] `04_primary_stopped.png` (Mac 1): `sudo brew services stop dnsmasq`
-- [ ] `05_answer_from_backup.png` (Mac 2): `dig` → SERVER = Mac 4 + `curl` still 200
-- [ ] `06_dns_vs_app_failure.png` (Mac 2): DNS OK but both backends down = 502, compared with DNS down = name not resolved
+- [x] (covered by `05b_backup_dns_curl_200.png`) `05_answer_from_backup.png` (Mac 2): `dig` → SERVER = Mac 4 + `curl` still 200
+- [x] `06_dns_vs_app_failure.png` (Mac 2): DNS OK but both backends down = 502, compared with DNS down = name not resolved
+- [x] `07_primary_restored.png` (Mac 2): primary back, SERVER = Mac 1, HTTP 200
+- [x] real fault found: `13_troubleshooting/drill_00_real_504_mac{2,3,4}.png` (both backends left stopped → 504; B refused, A timed out)
 - [ ] optional: `dns_failover.pcapng` (Wireshark on Mac 2): query to Mac 1 fails, retry goes to Mac 4
 
 ### Round 3: Ext B TTL → `evidence/09_dns_ttl/`
