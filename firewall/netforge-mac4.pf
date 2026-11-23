@@ -1,0 +1,4 @@
+# /etc/pf.anchors/netforge on Mac 4 (Backend B), Phase 2 Extension C
+# Only the nginx edge (Mac 2, 10.7.17.248) may open TCP connections to Backend B on port 3002.
+pass in quick on en0 proto tcp from 10.7.17.248 to 10.7.3.10 port 3002
+block drop in quick on en0 proto tcp from any to 10.7.3.10 port 3002

@@ -1,0 +1,8 @@
+# /etc/pf.anchors/netforge on Mac 3 (Backend A), Phase 2 Extension C
+# Only the nginx edge (Mac 2, 10.7.17.248) may open TCP connections to Backend A on port 3001.
+# pf evaluates "quick" rules top-down and stops at the first match:
+#   1. traffic from the edge -> pass
+#   2. anyone else            -> silently dropped (the client sees a timeout, not "refused")
+# Nothing else (Wi-Fi, DHCP, DNS, ping, the standby nginx on 8443) is matched, so connectivity is unaffected.
+pass in quick on en0 proto tcp from 10.7.17.248 to 10.7.28.81 port 3001
+block drop in quick on en0 proto tcp from any to 10.7.28.81 port 3001

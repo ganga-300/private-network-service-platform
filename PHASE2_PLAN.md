@@ -134,11 +134,11 @@ Rules for every screenshot:
 - [ ] optional: `dns_failover.pcapng` (Wireshark on Mac 2): query to Mac 1 fails, retry goes to Mac 4
 
 ### Round 3: Ext B TTL → `evidence/09_dns_ttl/`
-- [ ] `01_ttl_30.png` (client): `dig` shows TTL 30 in the ANSWER section
-- [ ] `02_record_changed_on_server.png` (Mac 1): config edited + `dig @<Mac1>` shows the new IP right away
-- [ ] `03_client_still_cached_old.png` (client): `dscacheutil -q host` still shows the old IP (with `date`)
-- [ ] `04_after_ttl_new_ip.png` (client): about 30 s later it shows the new IP (with `date`)
-- [ ] `05_flush_immediate.png` (client): flush cache → new answer immediately
+- [x] (in 03_cached_vs_server_timeline / 05) `01_ttl_30.png` (client): `dig` shows TTL 30 in the ANSWER section
+- [x] `02_record_changed_mac1.png` (was 02_record_changed_on_server) (Mac 1): config edited + `dig @<Mac1>` shows the new IP right away
+- [x] (in 03_cached_vs_server_timeline / 05) `03_client_still_cached_old.png` (client): `dscacheutil -q host` still shows the old IP (with `date`)
+- [x] (in 03_cached_vs_server_timeline / 05) `04_after_ttl_new_ip.png` (client): about 30 s later it shows the new IP (with `date`)
+- [x] (in 03_cached_vs_server_timeline / 05) `05_flush_immediate.png` (client): flush cache → new answer immediately
 
 ### Round 4: Ext C service isolation → `evidence/10_service_isolation/`
 Run this on both Mac 3 and Mac 4. Name the files `_mac3` / `_mac4`.
