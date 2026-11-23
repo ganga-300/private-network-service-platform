@@ -39,3 +39,32 @@ Expected: ANSWER SECTION shows `10.7.17.248` and SERVER shows `10.7.15.247`.
 ## Ports
 
 DNS uses 53/UDP for normal queries. Wireshark filter: `dns`.
+
+## Phase 2
+
+### Backup DNS (Extension A)
+Mac 4 (Anuradha, 10.7.3.10) runs a second dnsmasq with the same records: [`dnsmasq-backup.conf`](dnsmasq-backup.conf).
+Clients list both servers, primary first:
+
+```bash
+sudo networksetup -setdnsservers Wi-Fi 10.7.15.247 10.7.3.10
+scutil --dns | grep 'nameserver\[' | head -2
+```
+
+The records are copied **by hand**. Any change must be made on both Macs, then `sudo brew services restart dnsmasq`
+on each (`start` does not reload a running service).
+
+### TTL (Extension B)
+`local-ttl=30` on both servers. Without it, dnsmasq answers its own records with TTL 0 and clients never cache them.
+
+```bash
+dig app.netforge.test                      # ANSWER shows 30
+dscacheutil -q host -a name app.netforge.test   # what macOS has cached
+sudo dscacheutil -flushcache; sudo killall -HUP mDNSResponder   # flush the client cache
+```
+
+### Changing a record (used for Extensions B and E)
+```bash
+sudo sed -i '' 's#^address=/app.netforge.test/.*#address=/app.netforge.test/<NEW_IP>#' /opt/homebrew/etc/dnsmasq.conf
+sudo brew services restart dnsmasq
+```

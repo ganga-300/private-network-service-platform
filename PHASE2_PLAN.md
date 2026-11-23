@@ -170,9 +170,9 @@ New config bundle files: `dns/dnsmasq-backup.conf`, `nginx/nginx-phase2.conf`, `
 
 ## Final deliverables checklist (Review 2)
 
-- [ ] Architecture doc updated (Phase 2 topology: backup DNS, standby edge, firewall boundary)
+- [x] Architecture doc updated (Phase 2 topology: backup DNS, standby edge, firewall boundary)
 - [ ] Config bundle: Phase 2 dnsmasq ×2, nginx Phase 2 + standby, firewall rules + rollback, TLS notes on sharing the cert
 - [ ] Evidence folders 07–13 filled
-- [ ] Phase 2 final report: what changed from Phase 1 · test results table · troubleshooting findings · one learning paragraph per extension (A–F)
+- [x] (draft, team to review) Phase 2 final report: what changed from Phase 1 · test results table · troubleshooting findings · one learning paragraph per extension (A–F)
 - [ ] Rehearse the 11-step demo sequence (Section 8) end to end
 - [ ] Every member can explain every extension (viva)
