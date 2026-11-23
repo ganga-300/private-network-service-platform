@@ -53,7 +53,7 @@ Written architecture: [`architecture/architecture.md`](architecture/architecture
 | `backend-a/` | Backend A source (Python) | Pratiti |
 | `backend-b/` | Backend B source (Python) | Anuradha |
 | `evidence/` | Screenshots, captures and test scripts, by task | Everyone |
-| `report/` | Phase 1 report (PDF), [Phase 2 report](report/PHASE2_REPORT.md) | Everyone |
+| `report/` | Phase 1 report (`NetForge Project Report.docx`), Phase 2 report (`NetForge_Phase2_Report.docx`, text version in `PHASE2_REPORT.md`) | Everyone |
 | `video/` | Phase 1 demo | Everyone |
 
 ## Run the backends
